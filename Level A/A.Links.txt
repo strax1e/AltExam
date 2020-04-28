@@ -1,9 +1,11 @@
 A1: https://codeforces.com/problemset/problem/1325/A
 
-A2: https://codeforces.com/problemset/problem/822/A
+A2: https://codeforces.com/problemset/problem/664/A?locale=ru
 
-A3: https://codeforces.com/problemset/problem/664/A
+https://codeforces.com/problemset/problem/822/A
 
-A4: https://codeforces.com/problemset/problem/582/A
+https://codeforces.com/problemset/problem/664/A
 
-A5: https://codeforces.com/problemset/problem/1034/A
+https://codeforces.com/problemset/problem/582/A
+
+https://codeforces.com/problemset/problem/1034/A
