@@ -25,13 +25,13 @@ https://codeforces.com/problemset/problem/664/A
 
 int main()
 {
-  std::string a, b;
-  std::cin >> a >> b;
+    std::string a, b;
+    std::cin >> a >> b;
 
-  if (a == b)
-    std::cout << a;
-  else
-    std::cout << 1;
+    if (a == b)
+        std::cout << a;
+    else
+        std::cout << 1;
 
-  return 0;
+    return 0;
 }
