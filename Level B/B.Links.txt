@@ -1,8 +1,8 @@
+B1: https://codeforces.com/contest/337/problem/B
+
 https://codeforces.com/problemset/problem/338/D
 
 https://codeforces.com/problemset/problem/798/C
-
-https://codeforces.com/contest/337/problem/B
 
 https://codeforces.com/contest/585/problem/C
 
