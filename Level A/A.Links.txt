@@ -6,6 +6,4 @@ A3 https://codeforces.com/problemset/problem/822/A
 
 https://codeforces.com/problemset/problem/582/A
 
-https://codeforces.com/problemset/problem/1034/A
-
 https://codeforces.com/problemset/problem/1068/B
