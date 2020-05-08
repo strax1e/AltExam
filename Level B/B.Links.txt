@@ -1,5 +1,7 @@
 B1: https://codeforces.com/contest/337/problem/B
 
+B2: https://codeforces.com/problemset/problem/1034/A
+
 https://codeforces.com/problemset/problem/338/D
 
 https://codeforces.com/problemset/problem/798/C
