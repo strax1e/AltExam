@@ -1,6 +1,8 @@
 B1: https://codeforces.com/contest/337/problem/B
 
-B2: https://codeforces.com/problemset/problem/1034/A
+B2: https://codeforces.com/contest/343/problem/A
+
+B3: https://codeforces.com/problemset/problem/1034/A
 
 https://codeforces.com/problemset/problem/338/D
 
@@ -8,7 +10,6 @@ https://codeforces.com/problemset/problem/798/C
 
 https://codeforces.com/contest/585/problem/C
 
-https://codeforces.com/contest/343/problem/A
 
 https://codeforces.com/contest/982/problem/E
 
