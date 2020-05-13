@@ -1,3 +1,4 @@
+//https://codeforces.com/contest/343/problem/A
 #include <iostream>
 
 long long GCD(long long, long long);
