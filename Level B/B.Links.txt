@@ -4,6 +4,8 @@ B2: https://codeforces.com/contest/343/problem/A
 
 B3: https://codeforces.com/problemset/problem/1034/A
 
+B4: https://codeforces.com/problemset/problem/1349/A
+
 https://codeforces.com/problemset/problem/338/D
 
 https://codeforces.com/problemset/problem/798/C
