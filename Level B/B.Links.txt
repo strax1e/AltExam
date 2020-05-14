@@ -8,10 +8,10 @@ B4: https://codeforces.com/problemset/problem/1349/A
 
 B5: https://codeforces.com/contest/585/problem/C
 
+B6: https://codeforces.com/problemset/problem/798/C
+
 
 https://codeforces.com/problemset/problem/338/D
-
-https://codeforces.com/problemset/problem/798/C
 
 https://codeforces.com/contest/982/problem/E
 
