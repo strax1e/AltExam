@@ -1,58 +1,60 @@
-﻿#define _CRT_SECURE_NO_WARNINGS
+// https://codeforces.com/contest/585/problem/C
 
-/* Ссылка на задачу:
- * https://codeforces.com/problemset/problem/1034/A
- */
+#include <iostream>
 
-#include <math.h>
-#include <stdio.h>
+long long GCD(long long, long long);
 
-#define MN 300000
-#define MX 15000000
-int input[MN + 5], least_prime_div[MX + 5], primes[MX + 5], pnum = 0, s[MX + 5];
-
-int gcd( int x, int y )
+int main()
 {
-  return y ? gcd( y, x % y ) : x;
+    long long x(0), y(0);
+    std::cin >> x >> y;
+    if (GCD(x, y) == 1)
+        while (x && y)
+        {
+            if (y < x)
+            {
+                long long tmp = x / y;
+                x %= y;
+                if (!x)
+                    --tmp;
+                printf("%lldA", tmp);
+            }
+            else
+            {
+                long long tmp = y / x;
+                y %= x;
+                if (!y)
+                    --tmp;
+                printf("%lldB", tmp);
+            }
+        }
+    else
+        printf("Impossible");
+    return 0;
 }
 
-int main( void )
+long long GCD(long long a, long long b)
 {
-  int num, allgcd = 0, curdiv, ans = 0;
-  // Поиск простых чисел и чисел, которые на них делятся
-  for (int i = 2; i <= MX; ++i)
-  {
-    if (!least_prime_div[i])
-      least_prime_div[i] = primes[++pnum] = i;
-    for (int j = 1; i * primes[j] <= MX; ++j)
+    long long cnt2(1);
+    while (a && b)
     {
-      least_prime_div[i * primes[j]] = primes[j];
-      if (i % primes[j] == 0)
-        break;
+        while (!(a & 1) && !(b & 1))
+        {
+            a >>= 1;
+            b >>= 1;
+            cnt2 *= 2;
+        }
+        while (!(a & 1))
+            a >>= 1;
+        while (!(b & 1))
+            b >>= 1;
+        if (a < b)
+            b -= a;
+        else
+            a -= b;
     }
-  }
-  // Ввод и нахождение НОД
-  scanf( "%d", &num );
-  for (int i = 1; i <= num; ++i)
-  {
-    scanf( "%d", &input[i] );
-    allgcd = gcd( allgcd, input[i] );
-  }
-  /* Подсчет сколько раз каждое простое число
-   * оказалось минимальным делителем для
-   * чисел из введенного набора, сокращенных на НОД
-   */
-  for (int i = 1; i <= num; ++i)
-    for (int j = input[i] / allgcd; j > 1;)
-    {
-      curdiv = least_prime_div[j];
-      s[curdiv]++;
-      do
-        j /= least_prime_div[j];
-      while (least_prime_div[j] == curdiv);
-    }
-  for (int i = 1; i <= MX; ++i)
-    ans = fmax( ans, s[i] );
-  printf( "%d", ans ? num - ans : -1 );
-  return 0;
+    if (!a)
+        return b * cnt2;
+    else
+        return a * cnt2;
 }

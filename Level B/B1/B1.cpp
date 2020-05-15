@@ -1,61 +1,57 @@
-//Ссылка на задачу: 
-//https://codeforces.com/contest/337/problem/B
+﻿// https://codeforces.com/problemset/problem/1034/A
 
-#include <iostream>
+#define _CRT_SECURE_NO_WARNINGS
 
-using std::cin;
 
-long long binaryGCD(long long, long long);
+#include <math.h>
+#include <stdio.h>
 
-int main()
+#define MN 300000
+#define MX 15000000
+int input[MN + 5], least_prime_div[MX + 5], primes[MX + 5], pnum = 0, s[MX + 5];
+
+int gcd( int x, int y )
 {
-    long long a(0), b(0), c(0), d(0), answer(0);
-    cin >> a >> b >> c >> d;
-    if (a * d == c * b)
-        printf("0");
-    else
-    {
-        long long gcd(0);
-        if (a * d > c * b) // заполнит всю высоту
-        {
-            gcd = binaryGCD((a * d - b * c), a * d);
-            printf("%lld/%lld", (a * d - b * c) / gcd, (a * d) / gcd);
-        }
-        else // заполнит всю ширину
-        {
-            gcd = binaryGCD((c * b - a * d), c * b);
-            printf("%lld/%lld", (b * c - a * d) / gcd, (b * c) / gcd);
-        }
-    }
-    return 0;
+  return y ? gcd( y, x % y ) : x;
 }
 
-long long binaryGCD(long long a, long long b)
+int main( void )
 {
-    if (a < 0)
-        a = ~a + 1;
-    if (b < 0)
-        b = ~b + 1;
-    long long cnt2(1);
-    while (a && b)
+  int num, allgcd = 0, curdiv, ans = 0;
+  // Поиск простых чисел и чисел, которые на них делятся
+  for (int i = 2; i <= MX; ++i)
+  {
+    if (!least_prime_div[i])
+      least_prime_div[i] = primes[++pnum] = i;
+    for (int j = 1; i * primes[j] <= MX; ++j)
     {
-        while (!(a & 1) && !(b & 1))
-        {
-            a >>= 1;
-            b >>= 1;
-            cnt2 *= 2;
-        }
-        while (!(a & 1))
-            a >>= 1;
-        while (!(b & 1))
-            b >>= 1;
-        if (a < b)
-            b -= a;
-        else
-            a -= b;
+      least_prime_div[i * primes[j]] = primes[j];
+      if (i % primes[j] == 0)
+        break;
     }
-    if (!a)
-        return b * cnt2;
-    else
-        return a * cnt2;
+  }
+  // Ввод и нахождение НОД
+  scanf( "%d", &num );
+  for (int i = 1; i <= num; ++i)
+  {
+    scanf( "%d", &input[i] );
+    allgcd = gcd( allgcd, input[i] );
+  }
+  /* Подсчет сколько раз каждое простое число
+   * оказалось минимальным делителем для
+   * чисел из введенного набора, сокращенных на НОД
+   */
+  for (int i = 1; i <= num; ++i)
+    for (int j = input[i] / allgcd; j > 1;)
+    {
+      curdiv = least_prime_div[j];
+      s[curdiv]++;
+      do
+        j /= least_prime_div[j];
+      while (least_prime_div[j] == curdiv);
+    }
+  for (int i = 1; i <= MX; ++i)
+    ans = fmax( ans, s[i] );
+  printf( "%d", ans ? num - ans : -1 );
+  return 0;
 }

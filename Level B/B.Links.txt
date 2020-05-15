@@ -1,16 +1,10 @@
-B1: https://codeforces.com/contest/337/problem/B
+B1: https://codeforces.com/problemset/problem/1034/A
 
-B2: https://codeforces.com/contest/343/problem/A
+B2: https://codeforces.com/problemset/problem/1349/A
 
-B3: https://codeforces.com/problemset/problem/1034/A
+B3: https://codeforces.com/contest/585/problem/C
 
-B4: https://codeforces.com/problemset/problem/1349/A
-
-B5: https://codeforces.com/contest/585/problem/C
-
-B6: https://codeforces.com/problemset/problem/798/C
-
-B7: https://codeforces.com/problemset/problem/338/D
+B4: https://codeforces.com/problemset/problem/798/C
 
 
 https://codeforces.com/contest/982/problem/E
