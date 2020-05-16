@@ -6,6 +6,8 @@ B3: https://codeforces.com/contest/585/problem/C
 
 B4: https://codeforces.com/problemset/problem/798/C
 
+B5 : https://codeforces.com/problemset/problem/338/D
+
 
 https://codeforces.com/contest/982/problem/E
 
