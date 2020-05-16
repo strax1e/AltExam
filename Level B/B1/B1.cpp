@@ -1,5 +1,8 @@
 ﻿// https://codeforces.com/problemset/problem/1034/A
-
+/* Эта задача выбрана, так как требует
+ * умения работы с простыми делителями
+ * и понимания природы увелечения НОД
+ */
 #define _CRT_SECURE_NO_WARNINGS
 
 
