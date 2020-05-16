@@ -1,12 +1,8 @@
-/* https://codeforces.com/problemset/problem/798/C
- *
- * В данной задаче предлагается реализовать НОД и научиться проводить множество
- * различных преобразований с входными данными для получения ответа.
- */
+// https://codeforces.com/problemset/problem/798/C
 
 #include <iostream>
 
-int gcd( int a, int b )
+int gcd(int a, int b)
 {
   while (b)
   {
@@ -25,7 +21,7 @@ int main()
   for (int i = 0; i < n; ++i)
   {
     std::cin >> elem;
-    currGCD = gcd( elem, currGCD );
+    currGCD = gcd(elem, currGCD);
 
     if (elem % 2)
       ++countOdd;
