@@ -1,4 +1,9 @@
-// https://codeforces.com/problemset/problem/664/A
+/* https://codeforces.com/problemset/problem/664/A
+ *
+ * Данная задача заставляет студентов задуматься о том,
+ * что не стоит бояться пугающих на первый взгляд условий,
+ * стоит лишь немного подумать.
+ */
 
 #include <iostream>
 #include <string>

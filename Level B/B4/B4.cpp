@@ -1,4 +1,7 @@
-// https://codeforces.com/problemset/problem/798/C
+/* https://codeforces.com/problemset/problem/798/C
+ *
+ * Данная задача 
+ */
 
 #include <iostream>
 

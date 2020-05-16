@@ -1,10 +1,10 @@
-﻿// https://codeforces.com/problemset/problem/1034/A
-/* Эта задача выбрана, так как требует
- * умения работы с простыми делителями
- * и понимания природы увелечения НОД
+﻿/* https://codeforces.com/problemset/problem/1034/A
+ *
+ * Эта задача выбрана, так как требует умения работы с простыми делителями 
+ * и понимания природы увеличения НОД.
  */
-#define _CRT_SECURE_NO_WARNINGS
 
+#define _CRT_SECURE_NO_WARNINGS
 
 #include <math.h>
 #include <stdio.h>
@@ -40,9 +40,9 @@ int main( void )
     scanf( "%d", &input[i] );
     allgcd = gcd( allgcd, input[i] );
   }
-  /* Подсчет сколько раз каждое простое число
+  /* Подсчет, сколько раз каждое простое число
    * оказалось минимальным делителем для
-   * чисел из введенного набора, сокращенных на НОД
+   * чисел из введенного набора, сокращенных на НОД.
    */
   for (int i = 1; i <= num; ++i)
     for (int j = input[i] / allgcd; j > 1;)

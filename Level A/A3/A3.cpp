@@ -1,4 +1,9 @@
-// https://codeforces.com/problemset/problem/822/A
+/* https://codeforces.com/problemset/problem/822/A
+ *
+ * Данная задача даёт понять, что не нужно бросаться реализовывать
+ * первый алгоритм, который пришел в голову. Стоит аккуратно оценить
+ * ограничения вводимых данных и придумать рациональное решение.
+ */
 
 #include <iostream>
 #include <algorithm>

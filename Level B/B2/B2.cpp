@@ -1,5 +1,8 @@
-// https://codeforces.com/problemset/problem/1349/A
-/* Задача, требующая предварительной теоретической обработки условия */
+/* https://codeforces.com/problemset/problem/1349/A
+ *
+ * Задача, требующая предварительной теоретической обработки условия.
+ */
+
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <iostream>
