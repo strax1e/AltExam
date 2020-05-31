@@ -1,24 +1,45 @@
-// https://codeforces.com/contest/343/problem/A
-
 #include <iostream>
+
+typedef long long ll;
+
+ll extendedGCD(ll a, ll b, ll &x, ll &y);
 
 int main()
 {
-    long long a(0), b(0), k(0);
-    std::cin >> a >> b;
-    while (a && b)
+    int T(0);
+    std::cin >> T;
+    do
     {
-        if (a < b)
-        {
-            k += b / a;
-            b %= a;
-        }
+        ll Q(0), E(0), R(0), x(0), y(0);
+        std::cin >> Q >> E >> R;
+        ll d = extendedGCD(Q, E, x, y);
+        if (R % d)
+            puts("NO\n");
         else
         {
-            k += a / b;
-            a %= b;
+            x *= R / d;
+            y *= -(R / d);
+            while (x < 0 || y < 0)
+            {
+                x += E;
+                y += Q;
+            }
+            printf("%lld %lld\n", x, y);
         }
+    } while (--T);
+}
+
+ll extendedGCD(ll a, ll b, ll &x, ll &y)
+{
+    if (!b)
+    {
+        x = 1;
+        y = 0;
+        return a;
     }
-    std::cout << k;
-    return 0;
+    ll tp = extendedGCD(b, a % b, x, y);
+    ll t = x;
+    x = y;
+    y = t - a / b * x;
+    return tp;
 }

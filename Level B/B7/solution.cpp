@@ -1,67 +1,110 @@
-// https://codeforces.com/contest/710/problem/D
+//https://codeforces.com/problemset/problem/338/D
 
 #include <iostream>
-#include <math.h>
+#include <algorithm>
 
-long a1, b1, a2, b2, l, r;
+typedef long long ll;
 
-long _ceil( long, long );
-long _floor( long a, long b ) 
-{ 
-	return b < 0 ? _floor(-a, -b) : a < 0 ? -_ceil(-a, b) : a / b; 
-}
-long _ceil( long a, long b ) 
-{ 
-	return b < 0 ? _ceil(-a, -b) : a < 0 ? -_floor(-a, b) : (a + b - 1) / b; 
-}
+// Расширенный алгоритм Евклида
+ll extendedGCD(ll a, ll b, ll &x, ll &y);
 
-// extended Euclidean algorithm
-long gcdext( long a, long b, long &x, long &y ) 
+// Двоичный алгоритм Евклида
+ll GCD(ll a, ll b);
+
+// Функция выдачи NO и завершения работы
+void NO();
+
+int main()
 {
-	if (!a) 
-	{
-		x = 0, y = 1;
-		return b;
-	}
-	long xx, yy, g = gcdext(b % a, a, xx, yy);
-	x = yy - b / a * xx;
-	y = xx;
-	return g;
+    ll n(0), m(0), x(0), y(0), d(0), Xo(0), U0(0), A[10001] = {0};
+    int k(0);
+    std::cin >> n >> m >> k >> A[1];
+    if (k > n)
+        NO();
+    Xo = A[1];
+    for (int h = 2; h <= k; ++h)
+    {
+        std::cin >> A[h];
+        d = extendedGCD(Xo, A[h], x, y);
+
+        // Выйти, если решения нет (с % НОД(A, b) != 0)
+        if ((-h + 1 - U0) % d)
+            NO();
+
+        // Вычисление нового частного решения и прибавление его к остальным
+        U0 += (x * (-h + 1 - U0) / d) % (A[h] / d) * Xo;
+
+        // НОК c новым модулем
+        Xo = Xo / d * A[h];
+
+        // Выйти, если НОК > высоты матрицы (НОК = индекс по высоте)
+        if (Xo > n)
+            NO();
+
+        // Уход от отрицательного значения по модулю Xo однородного
+        U0 = (U0 % Xo + Xo) % Xo;
+    }
+
+    // Проверка на нуль индекс в строке. Потому что элементы в кольце начинаются с нуля, а таблица начинается с 1
+    if (!U0)
+        U0 = Xo;
+
+    // Выйти, если последовательность не вместилась в таблицу
+    if (U0 + k - 1 > m)
+        NO();
+
+    // Проверка на совпадение последовательности по полученной позиции в строке.
+    for (int h = 1; h <= k; ++h)
+        if (GCD(Xo, U0 + h - 1) != A[h])
+            NO();
+
+    printf("YES");
+    return 0;
 }
 
-void main(void)
+ll extendedGCD(ll a, ll b, ll &x, ll &y)
 {
-	std::cin >> a1 >> b1 >> a2 >> b2 >> l >> r;
-	
-	l = fmax(0ll, _ceil(l - b1, a1));
-	r = _floor(r - b1, a1);
-	if (l > r) 
-	{
-		puts("0");
-		return;
-	}
+    if (!b)
+    {
+        x = 1;
+        y = 0;
+        return a;
+    }
+    ll tp = extendedGCD(b, a % b, x, y);
+    ll t = x;
+    x = y;
+    y = t - a / b * x;
+    return tp;
+}
 
-	long A = a1, B = -a2, C = b2 - b1;
-	long x0, y0;
-	long g = gcdext(A, B, x0, y0);
+ll GCD(ll a, ll b)
+{
+    ll cnt2(1);
+    while (a && b)
+    {
+        while (!(a & 1) && !(b & 1))
+        {
+            a >>= 1;
+            b >>= 1;
+            cnt2 *= 2;
+        }
+        while (!(a & 1))
+            a >>= 1;
+        while (!(b & 1))
+            b >>= 1;
+        if (a < b)
+            b -= a;
+        else
+            a -= b;
+    }
+    if (!a)
+        return b * cnt2;
+    else
+        return a * cnt2;
+}
 
-	if (C % g) 
-	{
-		puts("0");
-		return;
-	}
-
-	if (g < 0) 
-	{
-		g = -g;
-		x0 = -x0;
-		y0 = -y0;
-	}
-
-	long L = _ceil(r * g - x0 * C, B);
-	long R = _floor(l * g - x0 * C, B);
-	R = fmin(R, _floor(y0 * C, A));
-
-	long ans = fmax(0ll, R - L + 1);
-	std::cout << ans << std::endl;
+void NO()
+{
+    printf("NO");
+    exit(0);
 }
