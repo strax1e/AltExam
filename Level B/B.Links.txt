@@ -1,12 +1,12 @@
-B1: https://codeforces.com/problemset/problem/1034/A
+B2: https://codeforces.com/problemset/problem/1034/A
 
-B2: https://codeforces.com/problemset/problem/1349/A
+B3: https://codeforces.com/problemset/problem/1349/A
 
-B3: https://codeforces.com/contest/585/problem/C
+B4: https://codeforces.com/contest/585/problem/C
 
-B4: https://codeforces.com/problemset/problem/798/C
+B5: https://codeforces.com/problemset/problem/798/C
 
-B5 : https://codeforces.com/problemset/problem/338/D
+B6 : https://codeforces.com/problemset/problem/338/D
 
 
 https://codeforces.com/contest/982/problem/E
