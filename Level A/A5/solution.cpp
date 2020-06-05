@@ -19,6 +19,8 @@ int main()
         {
             x *= R / d;
             y *= -(R / d);
+            E /= d;
+            Q /= d;
             while (x < 0 || y < 0)
             {
                 x += E;

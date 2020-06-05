@@ -13,6 +13,8 @@ int main()
         ll A(0), B(0), x(0), y(0);
         std::cin >> A >> B;
         ll d = extendedGCD(A, B, x, y);
+        B /= d;
+        A /= d;
         printf("%lld %lld %lld %lld %lld\n", x, y, x - B, y + A, d);
     } while (--t);
 
