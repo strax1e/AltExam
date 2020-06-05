@@ -11,19 +11,19 @@ int main()
     long long a(0), b(0), c(0), d(0), answer(0);
     cin >> a >> b >> c >> d;
     if (a * d == c * b)
-        printf("0");
-    else
+        printf("0/1");
+    else 
     {
         long long gcd(0);
-        if (a * d > c * b) // заполнит всю высоту
+        if (a * d > c * b) // заполнит всю ширину
         {
             gcd = binaryGCD((a * d - b * c), a * d);
-            printf("%lld/%lld", (a * d - b * c) / gcd, (a * d) / gcd);
+            printf("%lld/%lld", (a * d - b * c)/gcd, (a * d)/gcd);
         }
-        else // заполнит всю ширину
+        else // заполнит всю длину
         {
             gcd = binaryGCD((c * b - a * d), c * b);
-            printf("%lld/%lld", (b * c - a * d) / gcd, (b * c) / gcd);
+            printf("%lld/%lld", (c * b - a * d)/gcd, (c * b)/gcd);
         }
     }
     return 0;
