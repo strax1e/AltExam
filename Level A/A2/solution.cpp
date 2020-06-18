@@ -5,7 +5,7 @@
 
 int main()
 {
-    std::string a, b;
+    std::string a, b
     std::cin >> a >> b;
 
     if (a == b)
