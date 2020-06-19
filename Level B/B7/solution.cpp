@@ -1,110 +1,77 @@
-//https://codeforces.com/problemset/problem/338/D
-
 #include <iostream>
-#include <algorithm>
 
-typedef long long ll;
+int gcd(int x, int y);
 
-// Расширенный алгоритм Евклида
-ll extendedGCD(ll a, ll b, ll &x, ll &y);
-
-// Двоичный алгоритм Евклида
-ll GCD(ll a, ll b);
-
-// Функция выдачи NO и завершения работы
-void NO();
+void exgcd(int a, long long &x, int b, long long &y);
 
 int main()
 {
-    ll n(0), m(0), x(0), y(0), d(0), Xo(0), U0(0), A[10001] = {0};
-    int k(0);
-    std::cin >> n >> m >> k >> A[1];
-    if (k > n)
-        NO();
-    Xo = A[1];
-    for (int h = 2; h <= k; ++h)
+    int n, m, x, y, vx, vy, a, b, c;
+    long long xx, yy;
+    std::cin >> n >> m >> x >> y >> vx >> vy;
+    if (x == 0 && (y == 0 || y == m) || x == n && (y == 0 || y == m))
     {
-        std::cin >> A[h];
-        d = extendedGCD(Xo, A[h], x, y);
-
-        // Выйти, если решения нет (с % НОД(A, b) != 0)
-        if ((-h + 1 - U0) % d)
-            NO();
-
-        // Вычисление нового частного решения и прибавление его к остальным
-        U0 += (x * (-h + 1 - U0) / d) % (A[h] / d) * Xo;
-
-        // НОК c новым модулем
-        Xo = Xo / d * A[h];
-
-        // Выйти, если НОК > высоты матрицы (НОК = индекс по высоте)
-        if (Xo > n)
-            NO();
-
-        // Уход от отрицательного значения по модулю Xo однородного
-        U0 = (U0 % Xo + Xo) % Xo;
+        printf("%d %d\n", x, y);
+        return 0;
     }
-
-    // Проверка на нуль индекс в строке. Потому что элементы в кольце начинаются с нуля, а таблица начинается с 1
-    if (!U0)
-        U0 = Xo;
-
-    // Выйти, если последовательность не вместилась в таблицу
-    if (U0 + k - 1 > m)
-        NO();
-
-    // Проверка на совпадение последовательности по полученной позиции в строке.
-    for (int h = 1; h <= k; ++h)
-        if (GCD(Xo, U0 + h - 1) != A[h])
-            NO();
-
-    printf("YES");
+    if (vx == 0 && vy == 0)
+    {
+        printf("-1\n");
+        return 0;
+    }
+    if (vx == 0)
+    {
+        if (x == 0 || x == n)
+            printf("%d %d\n", x, vy == 1 ? m : 0);
+        else
+            printf("-1\n");
+        return 0;
+    }
+    if (vy == 0)
+    {
+        if (y == 0 || y == m)
+            printf("%d %d\n", vx == 1 ? n : 0, y);
+        else
+            printf("-1\n");
+        return 0;
+    }
+    a = n, b = m, c = (vy < 0 ? y : m - y) - (vx < 0 ? x : n - x);
+    int d = gcd(a, b);
+    if (c % d != 0)
+    {
+        printf("-1\n");
+        return 0;
+    }
+    exgcd(a, xx, b, yy);
+    xx *= c / d, yy *= c / d;
+    xx = (xx % (b / d) + (b / d)) % (b / d), yy = (xx * a - c) / b;
+    if ((vx > 0) == (xx % 2))
+        printf("0 ");
+    else
+        printf("%d ", n);
+    if ((vy > 0) == (yy % 2))
+        printf("0\n");
+    else
+        printf("%d\n", m);
     return 0;
 }
 
-ll extendedGCD(ll a, ll b, ll &x, ll &y)
+int gcd(int x, int y)
+{
+    if (!y)
+        return x;
+    else
+        return gcd(y, x % y);
+}
+
+void exgcd(int a, long long &x, int b, long long &y)
 {
     if (!b)
     {
-        x = 1;
-        y = 0;
-        return a;
+        x = 1, y = 0;
+        return;
     }
-    ll tp = extendedGCD(b, a % b, x, y);
-    ll t = x;
-    x = y;
-    y = t - a / b * x;
-    return tp;
-}
-
-ll GCD(ll a, ll b)
-{
-    ll cnt2(1);
-    while (a && b)
-    {
-        while (!(a & 1) && !(b & 1))
-        {
-            a >>= 1;
-            b >>= 1;
-            cnt2 *= 2;
-        }
-        while (!(a & 1))
-            a >>= 1;
-        while (!(b & 1))
-            b >>= 1;
-        if (a < b)
-            b -= a;
-        else
-            a -= b;
-    }
-    if (!a)
-        return b * cnt2;
-    else
-        return a * cnt2;
-}
-
-void NO()
-{
-    printf("NO");
-    exit(0);
+    exgcd(b, x, a % b, y);
+    int t = y;
+    y = x - a / b * y, x = t;
 }

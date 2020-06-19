@@ -16,10 +16,11 @@ https://docs.google.com/document/d/1YQ2fYwiEFKYF7vOj_aT9cqeHy3nbAdlHzLFb_cNlJXk/
 
 Внутри уровня сложность условно упорядочена по возрастанию числа у соответвующей буквы.
 
-Взятые с codeforces.com задачи: A1, A2, A3, A4, A8, B2, B3, B4, B5, B6, B7.
+Взятые с codeforces.com задачи: A1, A2, A3, A4, A8, B2, B3, B4, B5, B6, B7, B8.
 
 Взятые с других ресурсов: A5, A7.
 
 Придуманные: A6, A9, B1.
 
-Всего 16.
+Всего 17.
+Разобрано 16.
