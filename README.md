@@ -22,4 +22,4 @@ https://docs.google.com/document/d/1YQ2fYwiEFKYF7vOj_aT9cqeHy3nbAdlHzLFb_cNlJXk/
 
 Придуманные: A6, A9, B1.
 
-Всего 15.
+Всего 16.
