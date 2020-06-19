@@ -20,7 +20,7 @@ https://docs.google.com/document/d/1YQ2fYwiEFKYF7vOj_aT9cqeHy3nbAdlHzLFb_cNlJXk/
 
 Взятые с других ресурсов: A5, A7.
 
-Придуманные: A6, A9, B1.
+Придуманные: A6, A9, A10, B1.
 
-Всего 17.
-Разобрано 16.
+Всего 18.
+Разобрано 17.
