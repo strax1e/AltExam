@@ -1,47 +1,39 @@
+﻿// https://acmp.ru/index.asp?main=task&id_task=384
+
 #include <iostream>
+#define BLN 1000000000
 
-typedef long long ll;
+// алгоритм нахождения НОД
+int gcd( int a, int b )
+{
+  while (b)
+  {
+    int t = a % b;
+    a = b;
+    b = t;
+  }
+  return a;
+}
 
-ll extendedGCD(ll a, ll b, ll &x, ll &y);
 
 int main()
 {
-    int T(0);
-    std::cin >> T;
-    do
-    {
-        ll Q(0), E(0), R(0), x(0), y(0);
-        std::cin >> Q >> E >> R;
-        ll d = extendedGCD(Q, E, x, y);
-        if (R % d)
-            puts("NO\n");
-        else
-        {
-            x *= R / d;
-            y *= -(R / d);
-            E /= d;
-            Q /= d;
-            while (x < 0 || y < 0)
-            {
-                x += E;
-                y += Q;
-            }
-            printf("%lld %lld\n", x, y);
-        }
-    } while (--T);
-}
+  int i, j, g;
+  std::cin >> i >> j;
+  // нахождение НОД двух индексов чисел Фибоначчи
+  g = gcd( i, j );
 
-ll extendedGCD(ll a, ll b, ll &x, ll &y)
-{
-    if (!b)
-    {
-        x = 1;
-        y = 0;
-        return a;
-    }
-    ll tp = extendedGCD(b, a % b, x, y);
-    ll t = x;
-    x = y;
-    y = t - a / b * x;
-    return tp;
+  int f0 = 0, f1 = 1, ftmp = 1;
+  // нахождение g-ого числа Фибоначчи
+  for (int i = 2; i <= g; ++i)
+  {
+    ftmp = (f0 + f1) % BLN;
+    f0 = f1;
+    f1 = ftmp;
+  }
+
+  // вывод g-ого числа Фибоначчи
+  std::cout << ftmp;
+
+  return 0;
 }
